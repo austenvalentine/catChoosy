@@ -7,8 +7,8 @@ class VoteGetter extends Component {
         return (
             <Fragment>
                 <img src={this.props.imageURL} alt="" />
-                <button onClick={() => { this.props.pickPicture('no')} }>No</button>
-                <button onClick={() => { this.props.pickPicture('yes')} }>Yes</button>
+                <button onClick={() => { this.props.handlePickPicture('no')} }>No</button>
+                <button onClick={() => { this.props.handlePickPicture('yes')} }>Yes</button>
             </Fragment>
         )
     }

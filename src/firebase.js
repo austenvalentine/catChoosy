@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyCE52F_76Gn_jVGoT8Us-dW6IX_B-tJgIE",
-    authDomain: "kitty-curator.firebaseapp.com",
-    databaseURL: "https://kitty-curator.firebaseio.com",
-    projectId: "kitty-curator",
-    storageBucket: "kitty-curator.appspot.com",
-    messagingSenderId: "349452374661",
-    appId: "1:349452374661:web:5ca058602882b2c1"
+    apiKey: "AIzaSyBghBfyVy03q8EiKSKc8y-780cMOeVN4IA",
+    authDomain: "catchooser.firebaseapp.com",
+    databaseURL: "https://catchooser.firebaseio.com",
+    projectId: "catchooser",
+    storageBucket: "catchooser.appspot.com",
+    messagingSenderId: "784568714919",
+    appId: "1:784568714919:web:9b4ebc9e26bc757f"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
