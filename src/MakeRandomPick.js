@@ -41,9 +41,11 @@ class MakeRandomPick extends Component {
         });
         console.log('votes remaining: ', this.state.votesRemaining)
         // update the database
-        if (this.state.votesRemaining < 1) {
-            //unmount the catChooser
-            console.log('time to unmount chooser and go to gallery');
+        if (this.state.votesRemaining === 1) {
+            // close the catChooser
+            // call parent to close the catChooser and move
+            // on to the gallery
+            this.props.finishRandomPicking();
         } else {
             this.getNewPicture();
         }
