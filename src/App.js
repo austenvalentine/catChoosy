@@ -6,24 +6,28 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
-      finished: false
+      pickFinished: false
     }
 
   }
   finishRandomPicking = () => {
     this.setState({
-      finished: true
+      pickFinished: true
     })
   }
   render (){
     let currentHeader;
     let currentWidget;
-    if (this.state.finished) {
+    if (this.state.pickFinished) {
       // the game is over. show the gallery
       currentHeader = <h1>CatChooser: Gallery</h1>
       currentWidget = 
         <Fragment>
-          <ul className="gallery"><li>see a cat</li></ul>
+          <ul className="gallery">
+            <li>see a cat</li>
+            <li>see a cat</li>
+            <li>see a cat</li>
+          </ul>
         </Fragment>
     } else {
       // the game is still on. Get the visitor to vote.
@@ -37,7 +41,6 @@ class App extends Component {
           />
         </Fragment>
     }
-    console.log('finished?', this.state.finished);
     return (
       <div className="App">
         <header className="App-header">

@@ -10,4 +10,4 @@ class VotesRemainingDisplay extends Component {
     }
 }
 
-export default VotesRemainingDisplay;
+export default VotesRemainingDisplay;   
