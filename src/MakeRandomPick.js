@@ -12,8 +12,7 @@ class MakeRandomPick extends Component {
         super();
         this.state = {
             currentPictureURL: '',
-            // part of user authentication implementation
-            currentUser: null,
+            currentPictureID: '',
             // start counting the votes the
             // visitor has left before exiting
             // the vote system
@@ -23,42 +22,47 @@ class MakeRandomPick extends Component {
 
     getNewPicture = () => {
         axios({
+            // this endpoint doesn't need additional params
+            // to return a random image
             url: this.props.url
         }).then(response => {
-            response = response.data[0].url;
-            console.log(response);
+            // create a url from the id because the url is not always
+            // in the response
+
             this.setState({
-                currentPictureURL: response
+                // the id is suitable to use as a firebase node key
+                currentPictureURL: response.data[0].url,
+                currentPictureID: response.data[0].id
             });
         })
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // pushVoteToFirebase BEGINS
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    pushVoteToFirebase = (pictureURL) => {
-        // reference database
-        const dbRef = firebase.database().ref();
-        //=============================
-        // collect data for timestamp, user id and picture id.
-        //=============================
-        // refer to database timestamp placeholder; timestamp will be generated serverside
-        const timestamp = firebase.database.ServerValue.TIMESTAMP;
-
-        // generate picture id by hashing url
-        const hashedURL = hash.sha256().update(pictureURL).digest('hex');
-        // check if current picture id exists in database
-        dbRef.on('value', response => {
-            console.log(response);
-        })
-        // firebase.database().push()        
-        //===
-        // push new vote into database
-        
-        // create new 'vote' entry
-        
-        //===
-        
-        
+    pushVoteToFirebase = () => {
+        // because the ids are from the API, we'll prefix the string with an alphanumeric
+        // character just in case of a conflict with firebase
+        const pictureID = this.state.currentPictureID
+        const prefixedPictureID = 'A' + pictureID;
+        const pictureURL  = this.state.currentPictureURL;
+        // reference a picture node id which may or may not exist in firebase
+        const pictureRef = firebase.database().ref(`pictures/${prefixedPictureID}`);
+        // get a snapshot of that node and see if it exists in the database
+        let newVotes;
+        pictureRef.once('value', snapshot => {
+            if (snapshot.exists()) {
+                // existing picture entries get votes incremented
+                newVotes = snapshot.child('votes').val() + 1;
+            } else {
+                // new pictures get a first vote and the url recorded for use in the gallery
+                newVotes = 1;
+            }
+            pictureRef.update({ votes: newVotes, url: pictureURL});
+        });
+        this.setState({
+            currentPictureID: '',
+            currentPictureURL: ''
+        });
     }
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     // pushVoteToFirebase ENDS
@@ -76,6 +80,7 @@ class MakeRandomPick extends Component {
         // clear state.currentPicture to prevent double-voting and 
         // prepare for next Picture
         this.setState({
+            // clear the current picture to make way for the next random pick
             currentPicture: { url: '' },
             votesRemaining: newVotesRemaining
         });

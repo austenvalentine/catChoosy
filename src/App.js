@@ -1,5 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import MakeRandomPick from './MakeRandomPick.js';
+
 import './App.css';
 
 class App extends Component {
@@ -37,7 +38,7 @@ class App extends Component {
           <MakeRandomPick
             finishRandomPicking={this.finishRandomPicking}
             pickKitty={this.pickKitty}
-            url={"https://api.thecatapi.com/v1/images/search"}
+            url={"https://api.thecatapi.com/v1/images/search?"}
           />
         </Fragment>
     }
