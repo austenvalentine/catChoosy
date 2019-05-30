@@ -1,5 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import MakeRandomPick from './MakeRandomPick.js';
+import Leaderboard from './Leaderboard.js';
 
 import './App.css';
 
@@ -23,13 +24,7 @@ class App extends Component {
       // the game is over. show the gallery
       currentHeader = <h1>CatChooser: Gallery</h1>
       currentWidget = 
-        <Fragment>
-          <ul className="gallery">
-            <li>see a cat</li>
-            <li>see a cat</li>
-            <li>see a cat</li>
-          </ul>
-        </Fragment>
+          <Leaderboard />
     } else {
       // the game is still on. Get the visitor to vote.
       currentHeader = <h1>CatChooser: Vote!</h1>

@@ -1,9 +1,9 @@
 import React, {Fragment, Component} from 'react';
 import axios from 'axios';
+import firebase from './firebase.js';
 import VoteGetter from './VoteGetter.js';
 import VotesRemainingDisplay from './VotesRemainingDisplay.js';
-import firebase from './firebase.js';
-const hash = require('hash.js');
+
 
 
 
