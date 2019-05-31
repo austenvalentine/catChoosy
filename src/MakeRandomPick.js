@@ -55,7 +55,7 @@ class MakeRandomPick extends Component {
                 // new pictures get a first vote and the url recorded for use in the gallery
                 newVotes = 1;
             }
-            pictureRef.update({ votes: newVotes, url: pictureURL});
+            pictureRef.update({ votes: newVotes, url: pictureURL, timestamp: firebase.database.ServerValue.TIMESTAMP});
         });
         this.setState({
             currentPictureID: '',

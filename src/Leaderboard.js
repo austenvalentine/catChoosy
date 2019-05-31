@@ -16,9 +16,17 @@ class Leaderboard extends Component {
             for (let picture in snapshot.val()) {
                 unsortedPictures.push(snapshot.val()[picture]);
             }
+
             const sortedPictures = unsortedPictures.sort((a,b) => {
+                // if number of votes are the same, order by
+                // most recent vote first
+                if (a.votes === b.votes) {
+                    return a.timestamp < b.timestamp
+                }
+                // order by most votes
                 return a.votes < b.votes;
             })
+            console.log(sortedPictures)
             this.setState({
                 pictures: sortedPictures
             })
