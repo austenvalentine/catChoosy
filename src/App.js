@@ -22,7 +22,7 @@ class App extends Component {
     let currentWidget;
     if (this.state.pickFinished) {
       // the game is over. show the gallery
-      currentHeader = <h1>CatChooser: Gallery</h1>
+      currentHeader = <h1>CatChooser: Leaderboard</h1>
       currentWidget = 
           <Leaderboard />
     } else {

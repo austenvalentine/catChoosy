@@ -5,8 +5,6 @@ import VoteGetter from './VoteGetter.js';
 import VotesRemainingDisplay from './VotesRemainingDisplay.js';
 
 
-
-
 class MakeRandomPick extends Component {
     constructor() {
         super();
