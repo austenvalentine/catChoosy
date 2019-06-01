@@ -5,9 +5,9 @@ class VoteGetter extends Component {
 
     render (){
         return (
-            <div className="voteGetter">
-                <button onClick={() => { this.props.handlePickPicture('no')} }>No</button>
-                <button onClick={() => { this.props.handlePickPicture('yes')} }>Yes</button>
+            <div className="voteGetter clearfix">
+                <button className="left" onClick={() => { this.props.handlePickPicture('no')} }>No</button>
+                <button className="right" onClick={() => { this.props.handlePickPicture('yes')} }>Yes</button>
             </div>
         )
     }

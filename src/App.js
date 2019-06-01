@@ -38,9 +38,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="mainHeadingWrap contentWrapper">
-            <h1>CatChoosy</h1>
-          </div>
           {currentWidget}
         </header>
       </div>

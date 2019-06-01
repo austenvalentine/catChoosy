@@ -117,6 +117,7 @@ class MakeRandomPick extends Component {
         
         return (
             <div className="votingBooth contentWrapper">
+                <h1>Catchoosy</h1>
                 <h2>Vote for {this.state.votesRemaining} cat{this.state.votesRemaining===1 ? '':'s'}!</h2>
                 {/* is there a way to get suitable alt text for this image?*/}
                 <div className="imageBox">

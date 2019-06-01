@@ -35,6 +35,7 @@ class Leaderboard extends Component {
     render() {
         return(
             <div className="leaderboard contentWrapper">
+                <h1>Catchoosy</h1>
                 <h2>Leaderboard</h2>
                 <ol>
                     {
