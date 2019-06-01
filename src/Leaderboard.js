@@ -26,7 +26,6 @@ class Leaderboard extends Component {
                 // order by most votes
                 return a.votes < b.votes;
             })
-            console.log(sortedPictures)
             this.setState({
                 pictures: sortedPictures
             })
@@ -35,16 +34,22 @@ class Leaderboard extends Component {
 
     render() {
         return(
-                <ul>
+            <div className="leaderboard contentWrapper">
+                <h2>Leaderboard</h2>
+                <ol>
                     {
                         this.state.pictures.map((picture, i) => {
-                            return  <li key={i}>
-                                        <img src={picture.url} />
-                                        <p>Votes: {picture.votes}</p>
-                                    </li>
+                            return <li key={i}>
+                                <div className="imageBox">
+                                    <img src={picture.url} />
+                                </div>
+                                <p>Votes: {picture.votes}</p>
+                            </li>
                         })
                     }
-                </ul>
+                </ol>
+            </div>
+                
         );
     }
 }

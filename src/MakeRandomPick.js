@@ -1,8 +1,7 @@
-import React, {Fragment, Component} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import firebase from './firebase.js';
 import VoteGetter from './VoteGetter.js';
-import VotesRemainingDisplay from './VotesRemainingDisplay.js';
 
 
 class MakeRandomPick extends Component {
@@ -114,13 +113,18 @@ class MakeRandomPick extends Component {
     
 
     render () {
+        
+        
         return (
-            <Fragment>
+            <div className="votingBooth contentWrapper">
+                <h2>Vote for {this.state.votesRemaining} cat{this.state.votesRemaining===1 ? '':'s'}!</h2>
                 {/* is there a way to get suitable alt text for this image?*/}
-                <img src={this.state.currentPictureURL} alt='a thing you might like' />
+                <div className="imageBox">
+                    <img src={this.state.currentPictureURL} alt='a thing you might like' />
+                </div>
                 <VoteGetter handlePickPicture={this.handlePickPicture} />
-                <VotesRemainingDisplay votes={this.state.votesRemaining} />
-            </Fragment>
+            </div>
+
         )
     }
 }

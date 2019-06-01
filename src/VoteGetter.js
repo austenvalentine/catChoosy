@@ -1,15 +1,14 @@
-import React, {Fragment, Component} from 'react';
+import React, {Component} from 'react';
 
 class VoteGetter extends Component {
 
 
     render (){
         return (
-            <Fragment>
-                <img src={this.props.imageURL} alt="" />
+            <div className="voteGetter">
                 <button onClick={() => { this.props.handlePickPicture('no')} }>No</button>
                 <button onClick={() => { this.props.handlePickPicture('yes')} }>Yes</button>
-            </Fragment>
+            </div>
         )
     }
 }
