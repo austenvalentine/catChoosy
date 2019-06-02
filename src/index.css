@@ -119,6 +119,10 @@ h1, h2, h3, h4, h5, h6 {
   border: 10px solid rgba(128, 128, 128, 0.171)
 }
 
+.voteGetter button:focus {
+  outline: solid 5px rgba(0, 255, 255, 0.835);
+}
+
 .voteGetter .left {
   float: left;
   background-color: rgb(231, 178, 178);
