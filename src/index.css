@@ -70,11 +70,14 @@ h1, h2, h3, h4, h5, h6 {
 .leaderboard .imageBox {
   position: relative;
   margin-bottom: 120px;
+  letter-spacing: .08rem;
 }
 
 .leaderboard .imageBox .rank {
   font-family: "Fredoka One";
   font-size: 2rem;
+  letter-spacing: .15rem;
+  color: lemonchiffon;
 }
 
 .votesTab {
@@ -100,23 +103,35 @@ h1, h2, h3, h4, h5, h6 {
 
 .App-header h1, h2 {
   text-align: center;
-  margin: 0;
-  color: teal;
-  text-shadow: -2px -2px 0 #efefefcd,
-               -2px 2px 0 #efefefcd,
-                2px -2px 0 #efefefcd,
-                2px 2px 0 #efefefcd;
 } 
 
 .App-header h1 {
+  margin: 0;
+  color: teal;
+  text-shadow: -2px -2px 0 #efefefcd,
+  -2px 2px 0 #efefefcd,
+  2px -2px 0 #efefefcd,
+  2px 2px 0 #efefefcd;
   padding-top: 20px;
 }
+.App-header h2 {
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 20px;
+  letter-spacing: .1rem;
+  max-width: 600px;
+  color: lemonchiffon;
+  background-color: teal;
+}
+
 
 .voteGetter button {
   width: 45%;
   height: 60px;
   border-radius: 20px;
-  border: 10px solid rgba(128, 128, 128, 0.171)
+  border: 10px solid rgba(128, 128, 128, 0.171);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .voteGetter button:focus {

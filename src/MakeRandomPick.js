@@ -118,7 +118,7 @@ class MakeRandomPick extends Component {
         return (
             <div className="votingBooth contentWrapper">
                 <h1>CatChoosy</h1>
-                <h2>You have {this.state.votesRemaining} cat vote{this.state.votesRemaining===1 ? '':'s'}!</h2>
+                <h2>Cast <span className="votesRemaining">{this.state.votesRemaining}</span> vote{this.state.votesRemaining===1 ? '':'s'}!</h2>
                 {/* is there a way to get suitable alt text for this image?*/}
                 <div className="imageBox">
                     <a href={this.state.currentPictureURL} target="_blank" rel="noopener noreferrer"><img src={this.state.currentPictureURL} alt="A notice to visitors using assistive technology: The photographs featured on CatChoosy are hosted by The Cat API. Unfortunately, The Cat API database does not yet include descriptive captions." /></a>
