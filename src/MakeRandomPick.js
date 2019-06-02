@@ -121,7 +121,7 @@ class MakeRandomPick extends Component {
                 <h2>Vote for {this.state.votesRemaining} cat{this.state.votesRemaining===1 ? '':'s'}!</h2>
                 {/* is there a way to get suitable alt text for this image?*/}
                 <div className="imageBox">
-                    <img src={this.state.currentPictureURL} alt='Notice to visitors using assistive technology: The images featured on CatChoosy are hosted by The Cat API. Unfortunately, The Cat API database does not yet include descriptive captions with its images.' />
+                    <a href={this.state.currentPictureURL} target="_blank" rel="noopener noreferrer"><img src={this.state.currentPictureURL} alt="A notice to visitors using assistive technology: The photographs featured on CatChoosy are hosted by The Cat API. Unfortunately, The Cat API database does not yet include descriptive captions." /></a>
                 </div>
                 <VoteGetter handlePickPicture={this.handlePickPicture} />
             </div>

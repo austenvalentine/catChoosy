@@ -5,7 +5,8 @@ class Leaderboard extends Component {
     constructor () {
         super();
         this.state = {
-            pictures: []
+            pictures: [],
+            picturesDisplayed: []
         }
     }
 
