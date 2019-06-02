@@ -40,11 +40,11 @@ class Leaderboard extends Component {
                 <ol>
                     {
                         this.state.pictures.map((picture, i) => {
-                            return <li key={i}>
+                            return <li className="" key={i}>
                                 <div className="imageBox">
-                                    <img src={picture.url} />
+                                    <a href={picture.url} target="_blank"><img src={picture.url} /></a>
+                                    <p className="votesTab"> <span className="rank">#{i + 1} </span> {picture.votes} vote{picture.votes > 1 ? 's' : ''}</p>
                                 </div>
-                                <p>Votes: {picture.votes}</p>
                             </li>
                         })
                     }
