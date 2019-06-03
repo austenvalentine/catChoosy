@@ -63,15 +63,18 @@ class Leaderboard extends Component {
                 pictures: sortedPictures
             })
 
-            // set up our first picture for rendering
+            // setState sets up our first picture for rendering
+            // and then immediately calls our lazyLoader to prepare
+            // for scrolling
             if (sortedPictures.length > 0) {
                 this.setState({
                     loadedPictures: sortedPictures.slice(0, 1)
-                })
+                },
+                this.lazyLoader
+                )
             }
 
         })
-        this.lazyLoader();
         //========================
         // document scrolling triggers lazy loading
         document.addEventListener('scroll', this.lazyLoader);
