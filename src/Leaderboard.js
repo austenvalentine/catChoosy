@@ -14,6 +14,7 @@ class Leaderboard extends Component {
             loadedPictures: []
         }
         
+        
     }
 
     lazyLoader = () => {
@@ -30,8 +31,9 @@ class Leaderboard extends Component {
         const loadedZone = document.body.clientHeight - window.innerHeight;
         const bottomOfScreen = window.pageYOffset + window.innerHeight;
         if (bottomOfScreen > loadedZone) {
-            const newLength = this.state.loadedPictures.length + 1;
-            const newLoadedPictures = this.state.pictures.slice(0, newLength);
+            const copiedPictures = [...this.state.pictures];
+            const newLength = this.state.loadedPictures.length;
+            const newLoadedPictures = copiedPictures.slice(0, newLength + 1);
             this.setState({
                 loadedPictures: newLoadedPictures
             })
@@ -69,6 +71,7 @@ class Leaderboard extends Component {
             }
 
         })
+        this.lazyLoader();
         //========================
         // document scrolling triggers lazy loading
         document.addEventListener('scroll', this.lazyLoader);
