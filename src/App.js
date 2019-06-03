@@ -9,8 +9,8 @@ class App extends Component {
     super();
     this.state = {
 
-      // TESTING: go straight to leaderboard
-      pickFinished: true
+      // TESTING: set pickFinished to false to go straight to leaderboard
+      pickFinished: false
     }
 
   }

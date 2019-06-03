@@ -28,52 +28,36 @@ class Leaderboard extends Component {
     }
 
     componentDidMount (){
-        // const picturesRef = firebase.database().ref('pictures');
+        const picturesRef = firebase.database().ref('pictures');
         
-        // picturesRef.on('value', snapshot => {
-        //     console.log('hello?')
-        //     const unsortedPictures = [];
-        //     for (let picture in snapshot.val()) {
-        //         console.log(picture)
-        //         unsortedPictures.push(snapshot.val()[picture]);
-        //     }
+        picturesRef.on('value', snapshot => {
+            const unsortedPictures = [];
+            for (let picture in snapshot.val()) {
+                unsortedPictures.push(snapshot.val()[picture]);
+            }
 
-        //     const sortedPictures = unsortedPictures.sort((a,b) => {
-        //         // if number of votes are the same, order by
-        //         // most recent vote first
-        //         if (a.votes === b.votes) {
-        //             return b.timestamp - a.timestamp;
-        //         }
-        //         // order by most votes
-        //         return b.votes - a.votes;
-        //     })
-        //     this.setState({
-        //         pictures: sortedPictures
-        //     })
-        // })
-        //========================
-        const dummyPic = {
-            id: "77u", 
-            url: "https://cdn2.thecatapi.com/images/77u.jpg", 
-            timestamp: '192384743',
-            votes: 2
-        }
-        const newPictures = [];
-        for (let i=0; i<100; i++) {
-            newPictures.push(dummyPic);
-        }
-        
-        
-        //========================
-        this.setState({
-            pictures: newPictures
-        })
-        console.log(newPictures);
-        if (newPictures.length > 0) {
-            this.setState({
-                loadedPictures: newPictures.slice(0, 1)
+            const sortedPictures = unsortedPictures.sort((a,b) => {
+                // if number of votes are the same, order by
+                // most recent vote first
+                if (a.votes === b.votes) {
+                    return b.timestamp - a.timestamp;
+                }
+                // order by most votes
+                return b.votes - a.votes;
             })
-        }
+            this.setState({
+                pictures: sortedPictures
+            })
+            if (sortedPictures.length > 0) {
+                this.setState({
+                    loadedPictures: sortedPictures.slice(0, 1)
+                })
+            }
+
+        })
+        //========================
+        
+        
     }
 
     render() {
