@@ -13,8 +13,7 @@ class Leaderboard extends Component {
             // "lazy loading"
             loadedPictures: []
         }
-        // document scrolling triggers lazy loading
-        document.addEventListener('scroll', this.lazyLoader);
+        
     }
 
     lazyLoader = () => {
@@ -69,8 +68,15 @@ class Leaderboard extends Component {
 
         })
         //========================
+        // document scrolling triggers lazy loading
+        document.addEventListener('scroll', this.lazyLoader);
         
-        
+    }
+
+    componentWillUnmount (){
+        //===========================
+        // cleanup of event listener when leaderboard needs to close
+        document.removeEventListener('scroll', this.lazyLoader);
     }
 
     render() {

@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
 
       // TESTING: set pickFinished  to true to go straight to leaderboard
-      pickFinished: true
+      pickFinished: false
     }
 
   }
