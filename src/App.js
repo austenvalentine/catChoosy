@@ -8,6 +8,8 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
+
+      // TESTING: set pickFinished to false to go straight to leaderboard
       pickFinished: false
     }
 
