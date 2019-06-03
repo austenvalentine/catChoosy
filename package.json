@@ -1,5 +1,6 @@
 {
-  "name": "cat-curator",
+  "name": "catchoosy",
+  "homepage": "https://austenvalentine.com/catchoosy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

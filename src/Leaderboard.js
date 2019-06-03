@@ -41,7 +41,7 @@ class Leaderboard extends Component {
 
     componentDidMount (){
         const picturesRef = firebase.database().ref('pictures');
-        
+        // grab the picture objects from the database one at a time
         picturesRef.on('value', snapshot => {
             const unsortedPictures = [];
             for (let picture in snapshot.val()) {
@@ -49,7 +49,7 @@ class Leaderboard extends Component {
             }
 
             const sortedPictures = unsortedPictures.sort((a,b) => {
-                // if number of votes are the same, order by
+                // if number of votes is the same, order by
                 // most recent vote first
                 if (a.votes === b.votes) {
                     return b.timestamp - a.timestamp;
@@ -60,6 +60,8 @@ class Leaderboard extends Component {
             this.setState({
                 pictures: sortedPictures
             })
+
+            // set up our first picture for rendering
             if (sortedPictures.length > 0) {
                 this.setState({
                     loadedPictures: sortedPictures.slice(0, 1)
