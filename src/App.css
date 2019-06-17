@@ -75,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   margin-bottom: 120px;
   letter-spacing: .08rem;
+  border-top-left-radius: 0;
 }
 
 .leaderboard .imageBox .rank {
@@ -89,13 +90,14 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     padding: .5rem 1rem;
     bottom: 100%;
-    left: 1rem;
+    left: 0;
     right: 1rem;
     max-width: calc(1280px/3);
     margin: 0;
     border-radius: 10px 10px 0 0;
     color: white;
     font-weight: bold;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,13 +113,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .App-header h1 {
   margin: 0;
+  font-size: 3rem;
   padding-top: 20px;
   margin-bottom: .5rem;
   color: teal;
-  text-shadow: -2px -2px 0 #efefefcd,
-  -2px 2px 0 #efefefcd,
-  2px -2px 0 #efefefcd,
-  2px 2px 0 #efefefcd;
+  text-shadow: -4px -4px 0 #efefefcd,
+  -4px 4px 0 #efefefcd,
+  4px -4px 0 #efefefcd,
+  4px 4px 0 #efefefcd;
   padding-top: 40px;
 }
 .App-header h2 {
