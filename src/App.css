@@ -113,15 +113,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .App-header h1 {
   margin: 0;
-  font-size: 3rem;
-  padding-top: 20px;
+  font-size: 2.6rem;
   margin-bottom: .5rem;
   color: teal;
-  text-shadow: -4px -4px 0 #efefefcd,
-  -4px 4px 0 #efefefcd,
-  4px -4px 0 #efefefcd,
-  4px 4px 0 #efefefcd;
-  padding-top: 40px;
+  text-shadow: -5px -5px 0 #efefefcd,
+  -5px 5px 0 #efefefcd,
+  5px -5px 0 #efefefcd,
+  5px 5px 0 #efefefcd;
+  padding-top: 60px;
 }
 .App-header h2 {
   margin: 0 auto;
